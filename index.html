@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Learn & Tools - Outils en ligne & Apprentissage</title>
+    <meta name="description" content="Learn & Tools : des outils gratuits en ligne et des tutoriels pour apprendre l'informatique et la programmation.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Plus tard : Script AdSense à coller ici -->
+    <!--
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=TON_CLIENT_ID"
+        crossorigin="anonymous"></script>
+    -->
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --bg-soft: #111827;
+            --accent: #38bdf8;
+            --accent-soft: #1d4ed8;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --card: #020617;
+            --border: #1f2937;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #1d283a 0, #020617 45%, #020617 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            background: linear-gradient(to right, rgba(15,23,42,0.9), rgba(2,6,23,0.9));
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            padding: 0.1rem 0.4rem;
+            border-radius: 999px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        nav a {
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            transition: background 0.2s, color 0.2s;
+            color: var(--muted);
+        }
+
+        nav a:hover {
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text);
+        }
+
+        .cta-nav {
+            border: 1px solid rgba(56,189,248,0.6);
+            color: var(--accent);
+        }
+
+        .hero {
+            padding: 3rem 0 2.5rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 3vw, 2.6rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            color: var(--muted);
+            max-width: 32rem;
+            margin-bottom: 1.4rem;
+            font-size: 0.98rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148,163,184,0.4);
+            color: var(--muted);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            font-size: 0.95rem;
+            padding: 0.6rem 1.1rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s, transform 0.08s;
+            background: none;
+            color: var(--text);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+            border-color: rgba(56,189,248,0.6);
+            color: #0b1120;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+        }
+
+        .btn-ghost {
+            border-color: rgba(148,163,184,0.5);
+            color: var(--muted);
+        }
+
+        .btn-ghost:hover {
+            border-color: rgba(148,163,184,0.9);
+            background: rgba(15,23,42,0.9);
+            color: var(--text);
+        }
+
+        .hero-note {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .hero-card {
+            border-radius: 1.25rem;
+            background: radial-gradient(circle at top, #1d283a 0, #020617 50%, #020617 100%);
+            border: 1px solid rgba(51,65,85,0.9);
+            padding: 1.2rem;
+            box-shadow: 0 24px 60px rgba(15,23,42,0.85);
+        }
+
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .hero-card-tag {
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+            background: rgba(34,197,94,0.1);
+            color: #4ade80;
+            border: 1px solid rgba(34,197,94,0.4);
+        }
+
+        .hero-card-main {
+            background: rgba(15,23,42,0.9);
+            border-radius: 1rem;
+            padding: 0.9rem;
+            border: 1px solid rgba(30,64,175,0.8);
+            margin-bottom: 0.9rem;
+        }
+
+        .hero-card-title {
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+            color: var(--muted);
+        }
+
+        .hero-card-code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.78rem;
+            background: #020617;
+            border-radius: 0.7rem;
+            padding: 0.7rem;
+            overflow-x: auto;
+            border: 1px solid rgba(30,64,175,0.9);
+        }
+
+        .hero-card-footer {
+            font-size: 0.78rem;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .tag-small {
+            font-size: 0.7rem;
+            padding: 0.1rem 0.45rem;
+            border-radius: 999px;
+            background: rgba(37,99,235,0.22);
+            border: 1px solid rgba(37,99,235,0.6);
+            color: #bfdbfe;
+        }
+
+        .section {
+            padding: 1.5rem 0 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .section-link {
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.9rem;
+        }
+
+        .card {
+            background: rgba(15,23,42,0.95);
+            border-radius: 0.9rem;
+            padding: 0.85rem;
+            border: 1px solid rgba(31,41,55,0.9);
+            font-size: 0.87rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            transition: transform 0.08s, border-color 0.12s, box-shadow 0.12s;
+        }
+
+        .card:hover {
+            transform: translateY(-1px);
+            border-color: rgba(56,189,248,0.6);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.85);
+        }
+
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 0.1rem;
+        }
+
+        .card-desc {
+            color: var(--muted);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            margin-top: 0.2rem;
+            color: var(--muted);
+        }
+
+        .pill {
+            font-size: 0.7rem;
+            padding: 0.1rem 0.5rem;
+            border-radius: 999px;
+            background: rgba(15,23,42,1);
+            border: 1px solid rgba(55,65,81,0.9);
+        }
+
+        .layout-two {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+            gap: 1.2rem;
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            padding: 1.5rem 0 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        footer .footer-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .layout-two {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cards {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero {
+                padding-top: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    Learn &amp; Tools
+                    <span>BETA</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#outils">Outils</a></li>
+                        <li><a href="#blog">Blog Python</a></li>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#contact" class="cta-nav">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <main class="container">
+        <section class="hero">
+            <div class="hero-grid">
+                <div>
+                    <h1 class="hero-title">
+                        Des <span>outils en ligne</span> + des tutos pour apprendre et coder au quotidien.
+                    </h1>
+                    <p class="hero-subtitle">
+                        Learn &amp; Tools rassemble des outils pratiques (calculatrices, convertisseurs, générateurs)
+                        et des tutoriels simples pour apprendre l’informatique et la programmation à ton rythme.
+                    </p>
+
+                    <div class="hero-badges">
+                        <div class="badge">100% gratuit</div>
+                        <div class="badge">Pensé pour les débutants et autodidactes</div>
+                        <div class="badge">Outils + Python + productivité</div>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#outils" class="btn btn-primary">
+                            Accéder aux outils
+                        </a>
+                        <a href="#blog" class="btn btn-ghost">
+                            Commencer Python
+                        </a>
+                    </div>
+
+                    <p class="hero-note">
+                        À terme : monétisation par AdSense, puis vente / abonnements à des logiciels maison.
+                    </p>
+                </div>
+
+                <!-- Carte de droite (mini aperçu code / outil) -->
+                <aside class="hero-card">
+                    <div class="hero-card-header">
+                        <span>Exemple d’outil</span>
+                        <span class="hero-card-tag">Bientôt en ligne</span>
+                    </div>
+                    <div class="hero-card-main">
+                        <div class="hero-card-title">Calculatrice de TVA (France)</div>
+                        <pre class="hero-card-code"><code>// Exemple de logique (pseudo-code)
+prixHT  = saisir_valeur()
+tauxTVA = 20%
+prixTVA = prixHT * tauxTVA / 100
+prixTTC = prixHT + prixTVA
+
+afficher(prixTTC)</code></pre>
+                    </div>
+                    <div class="hero-card-footer">
+                        <span>Des outils simples pour les tâches du quotidien.</span>
+                        <span class="tag-small">À venir : outils interactifs</span>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- SECTION OUTILS -->
+        <section class="section" id="outils">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Outils en ligne</h2>
+                    <p class="section-subtitle">
+                        Une collection d’outils pratiques : calculatrices, convertisseurs, générateurs…
+                    </p>
+                </div>
+                <a href="tools/index.html" class="section-link">Voir tous les outils →</a>
+            </div>
+
+            <div class="cards">
+                <a class="card" href="tools/tva-calculator.html">
+                    <div class="card-title">Calculatrice de TVA</div>
+                    <p class="card-desc">
+                        Calcule rapidement le prix TTC ou HT avec différents taux de TVA.
+                    </p>
+                    <div class="card-meta">
+                        <span class="pill">Finance</span>
+                        <span>Bientôt disponible</span>
+                    </div>
+                </a>
+
+                <a class="card" href="tools/password-generator.html">
+                    <div class="card-title">Générateur de mots de passe</div>
+                    <p class="card-desc">
+                        Crée des mots de passe sécurisés pour tes comptes et projets.
+                    </p>
+                    <div class="card-meta">
+                        <span class="pill">Sécurité</span>
+                        <span>Bientôt disponible</span>
+                    </div>
+                </a>
+
+                <a class="card" href="tools/timestamp-converter.html">
+                    <div class="card-title">Convertisseur de timestamp</div>
+                    <p class="card-desc">
+                        Convertis facilement un timestamp en date lisible (et inversement).
+                    </p>
+                    <div class="card-meta">
+                        <span class="pill">Développement</span>
+                        <span>Bientôt disponible</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION BLOG + APPRENTISSAGE -->
+        <section class="section" id="blog">
+            <div class="layout-two">
+                <div>
+                    <div class="section-header">
+                        <div>
+                            <h2 class="section-title">Blog & Apprentissage</h2>
+                            <p class="section-subtitle">
+                                Des guides simples pour apprendre Python, l’informatique et gagner en autonomie.
+                            </p>
+                        </div>
+                        <a href="blog/index.html" class="section-link">Voir tous les articles →</a>
+                    </div>
+
+                    <div class="cards">
+                        <a class="card" href="blog/demarrer-avec-python.html">
+                            <div class="card-title">Démarrer avec Python</div>
+                            <p class="card-desc">
+                                Installation, premiers scripts, bonnes pratiques : un guide pour partir de zéro.
+                            </p>
+                            <div class="card-meta">
+                                <span class="pill">Python débutant</span>
+                                <span>Guide d’intro</span>
+                            </div>
+                        </a>
+
+                        <a class="card" href="blog/vscode-pour-debutants.html">
+                            <div class="card-title">Configurer VS Code pour coder confortablement</div>
+                            <p class="card-desc">
+                                Extensions utiles, thèmes, raccourcis et astuces pour être efficace sous VS Code.
+                            </p>
+                            <div class="card-meta">
+                                <span class="pill">Outils dev</span>
+                                <span>Productivité</span>
+                            </div>
+                        </a>
+
+                        <a class="card" href="blog/comprendre-les-variables.html">
+                            <div class="card-title">Comprendre les variables (Python & logique)</div>
+                            <p class="card-desc">
+                                Explication simple de ce qu’est une variable, avec exemples concrets.
+                            </p>
+                            <div class="card-meta">
+                                <span class="pill">Bases</span>
+                                <span>Concept clé</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- (Futur) emplacement pub / encart AdSense + call-to-action -->
+                <aside>
+                    <div class="section-header">
+                        <div>
+                            <h3 class="section-title">Monétisation & futur du site</h3>
+                            <p class="section-subtitle">
+                                Learn &amp; Tools est pensé pour évoluer : publicité, logiciels, abonnements…
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card" style="height: 100%; justify-content: space-between;">
+                        <div>
+                            <div class="card-title">Espace “AdSense” & logiciels</div>
+                            <p class="card-desc">
+                                Cet encart pourra afficher une publicité contextuelle (AdSense) ou mettre en avant
+                                un logiciel que tu auras développé : outil PC, service en ligne, module payant, etc.
+                            </p>
+                        </div>
+                        <div class="card-meta">
+                            <span class="pill">Monétisation</span>
+                            <span>À activer plus tard</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- SECTION A PROPOS -->
+        <section class="section" id="apropos">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">À propos de Learn &amp; Tools</h2>
+                    <p class="section-subtitle">
+                        Un projet personnel pour apprendre, expérimenter et construire une activité en ligne.
+                    </p>
+                </div>
+            </div>
+
+            <p style="font-size: 0.9rem; color: var(--muted); max-width: 56rem;">
+                Learn &amp; Tools est né d’une envie simple : regrouper au même endroit des outils utiles au
+                quotidien et des ressources d’apprentissage claires, sans blabla inutile. Le site a vocation
+                à évoluer progressivement : nouveaux outils, nouveaux tutoriels, puis mise en place d’une
+                monétisation via AdSense et, à terme, d’une offre de logiciels et services payants.
+            </p>
+        </section>
+
+        <!-- SECTION CONTACT -->
+        <section class="section" id="contact">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Contact</h2>
+                    <p class="section-subtitle">
+                        Une question, une idée d’outil ou de tutoriel ? Tu peux me contacter directement.
+                    </p>
+                </div>
+            </div>
+
+            <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 0.3rem;">
+                📧 Email : <a href="mailto:tonmail@example.com">tonmail@example.com</a>
+            </p>
+            <p style="font-size: 0.85rem; color: var(--muted);">
+                (Tu pourras aussi ajouter plus tard un formulaire de contact ou des liens vers tes réseaux.)
+            </p>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-meta">
+            <span>&copy; <span id="year"></span> Learn &amp; Tools. Tous droits réservés.</span>
+            <span>Projet personnel – outils, tutos & expérimentation business en ligne.</span>
+        </div>
+        <script>
+            // Affiche l'année courante automatiquement
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+    </footer>
+</body>
+</html>
