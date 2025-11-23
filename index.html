@@ -668,45 +668,58 @@ afficher(prixTTC)</code></pre>
             </p>
         </section>
 
-        <!-- SECTION CONTACT -->
+<!-- SECTION CONTACT -->
 <section class="section" id="contact">
     <div class="section-header">
         <div>
             <h2 class="section-title">Contact</h2>
             <p class="section-subtitle">
-                Une question, une idée d’outil, une suggestion d’article ? Tu peux me contacter facilement.
+                Une question, une idée d’outil, une suggestion d’article ? Envoie-moi un message facilement via ce formulaire.
             </p>
         </div>
     </div>
 
+    <!-- Petit texte email direct -->
     <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 0.6rem;">
         📧 Email direct : <a href="mailto:p.auvret.stratema@gmail.com">p.auvret.stratema@gmail.com</a>
     </p>
 
-    <form action="mailto:p.auvret.stratema@gmail.com" method="post" enctype="text/plain">
+    <!-- FORMULAIRE WEB3FORMS -->
+    <form action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- 🔐 Clé d'accès Web3Forms -->
+        <input type="hidden" name="access_key" value="70722f75-d7ac-4747-a6a3-15969418ca7b">
+
+        <!-- 📌 Sujet de l'email que TU recevras -->
+        <input type="hidden" name="subject" value="Nouveau message via Learn & Tools">
+
+        <!-- 🛡 Anti-spam recommandé par Web3Forms -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+
         <div class="contact-grid">
             <div class="contact-field">
                 <label class="contact-label" for="nom">Nom / Pseudo</label>
-                <input class="contact-input" type="text" id="nom" name="Nom" placeholder="Ex : Alex">
+                <input class="contact-input" type="text" id="nom" name="Nom" placeholder="Ex : Alex" required>
             </div>
+
             <div class="contact-field">
                 <label class="contact-label" for="email">Email</label>
-                <input class="contact-input" type="email" id="email" name="Email" placeholder="exemple@domaine.com">
+                <input class="contact-input" type="email" id="email" name="Email" placeholder="exemple@domaine.com" required>
             </div>
         </div>
 
         <div class="contact-field">
             <label class="contact-label" for="message">Message</label>
-            <textarea class="contact-textarea" id="message" name="Message" placeholder="Explique ton idée, ta question, ou ton besoin..."></textarea>
+            <textarea class="contact-textarea" id="message" name="Message"
+                placeholder="Explique ton idée, ta question, ou ton besoin..." required></textarea>
         </div>
 
         <div style="margin-top: 0.7rem;">
-            <button type="submit" class="btn btn-primary">Envoyer par email</button>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
         </div>
 
         <p class="contact-note">
-            Le bouton ouvrira ton logiciel de messagerie avec les informations pré-remplies.
-            Tu pourras l’ajuster avant d’envoyer.
+            Ton message me sera envoyé directement par email via Web3Forms.
         </p>
     </form>
 </section>
