@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculatrice de TVA - Learn & Tools</title>
+    <meta name="description" content="Calculatrice de TVA en ligne : calculez rapidement prix HT, prix TTC et montant de la TVA.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --accent: #38bdf8;
+            --accent-soft: #1d4ed8;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --border: #1f2937;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #1d283a 0, #020617 45%, #020617 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            background: rgba(15,23,42,0.95);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            padding: 0.1rem 0.4rem;
+            border-radius: 999px;
+            background: rgba(56,189,248,0.1);
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            color: var(--muted);
+            border: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border-color: rgba(148,163,184,0.6);
+            background: rgba(15,23,42,0.9);
+            color: var(--text);
+        }
+
+        main {
+            padding: 2rem 0 2.5rem;
+        }
+
+        h1 {
+            font-size: 1.7rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 1.4rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: rgba(15,23,42,0.95);
+            border-radius: 1rem;
+            padding: 1.1rem;
+            border: 1px solid rgba(31,41,55,0.9);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.45rem 0.6rem;
+            border-radius: 0.6rem;
+            border: 1px solid rgba(55,65,81,0.9);
+            background: rgba(15,23,42,0.9);
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.6rem;
+        }
+
+        .direction {
+            display: flex;
+            gap: 0.8rem;
+            font-size: 0.85rem;
+            margin: 0.4rem 0 0.9rem;
+            color: var(--muted);
+        }
+
+        .direction label {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin: 0;
+        }
+
+        .direction input {
+            width: auto;
+            margin: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            font-size: 0.9rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+            color: #0b1120;
+            font-weight: 600;
+            margin-right: 0.6rem;
+        }
+
+        .btn-secondary {
+            background: none;
+            border-color: rgba(75,85,99,0.9);
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            filter: brightness(1.05);
+        }
+
+        .result-line {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.92rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .result-label {
+            color: var(--muted);
+        }
+
+        .result-value {
+            font-weight: 600;
+        }
+
+        .hint {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 0.6rem;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(55,65,81,0.9);
+            color: var(--muted);
+            margin-bottom: 0.6rem;
+        }
+
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: minmax(0, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="logo">
+                <a href="../index.html">Learn &amp; Tools</a>
+                <span>TVA</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">← Tous les outils</a>
+                <a href="../index.html#blog">Blog Python</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Calculatrice de TVA</h1>
+        <p class="subtitle">
+            Calcule en quelques secondes le prix HT, le prix TTC et le montant de la TVA pour différents taux.
+        </p>
+
+        <div class="grid">
+            <section class="card">
+                <span class="tag">Mode de calcul</span>
+
+                <div class="direction">
+                    <label>
+                        <input type="radio" name="mode" value="ht-to-ttc" checked>
+                        À partir du prix HT → TTC
+                    </label>
+                    <label>
+                        <input type="radio" name="mode" value="ttc-to-ht">
+                        À partir du prix TTC → HT
+                    </label>
+                </div>
+
+                <label id="label-montant">Montant HT (€)</label>
+                <input type="number" id="montant" min="0" step="0.01" placeholder="Ex : 100.00">
+
+                <div class="row">
+                    <div>
+                        <label for="taux">Taux de TVA</label>
+                        <select id="taux">
+                            <option value="20">20 % (standard)</option>
+                            <option value="10">10 %</option>
+                            <option value="5.5">5,5 %</option>
+                            <option value="0">0 %</option>
+                            <option value="custom">Personnalisé…</option>
+                        </select>
+                    </div>
+                    <div id="custom-taux-wrapper" style="display:none;">
+                        <label for="taux-custom">Taux perso (%)</label>
+                        <input type="number" id="taux-custom" min="0" step="0.1" placeholder="Ex : 8.5">
+                    </div>
+                </div>
+
+                <div style="margin-top: 0.3rem;">
+                    <button class="btn" type="button" onclick="calculerTVA()">Calculer</button>
+                    <button class="btn btn-secondary" type="button" onclick="reinitialiser()">Réinitialiser</button>
+                </div>
+
+                <p class="hint">
+                    Saisis un montant, choisis le mode de calcul (HT ou TTC) ainsi que le taux, puis clique sur
+                    <strong>Calculer</strong>.
+                </p>
+            </section>
+
+            <section class="card">
+                <span class="tag">Résultats</span>
+
+                <div class="result-line">
+                    <span class="result-label">Prix HT :</span>
+                    <span class="result-value" id="res-ht">–</span>
+                </div>
+                <div class="result-line">
+                    <span class="result-label">Montant TVA :</span>
+                    <span class="result-value" id="res-tva">–</span>
+                </div>
+                <div class="result-line">
+                    <span class="result-label">Prix TTC :</span>
+                    <span class="result-value" id="res-ttc">–</span>
+                </div>
+
+                <p class="hint" id="res-info">
+                    Les résultats s’afficheront ici après le calcul.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const montantInput = document.getElementById('montant');
+        const tauxSelect = document.getElementById('taux');
+        const tauxCustomWrapper = document.getElementById('custom-taux-wrapper');
+        const tauxCustomInput = document.getElementById('taux-custom');
+        const labelMontant = document.getElementById('label-montant');
+
+        const resHT = document.getElementById('res-ht');
+        const resTVA = document.getElementById('res-tva');
+        const resTTC = document.getElementById('res-ttc');
+        const resInfo = document.getElementById('res-info');
+
+        // Affiche ou masque le champ de taux personnalisé
+        tauxSelect.addEventListener('change', () => {
+            if (tauxSelect.value === 'custom') {
+                tauxCustomWrapper.style.display = 'block';
+                tauxCustomInput.focus();
+            } else {
+                tauxCustomWrapper.style.display = 'none';
+            }
+        });
+
+        // Change le label selon le mode HT/TTC
+        const radios = document.querySelectorAll('input[name="mode"]');
+        radios.forEach(r => {
+            r.addEventListener('change', () => {
+                if (r.checked) {
+                    if (r.value === 'ht-to-ttc') {
+                        labelMontant.textContent = 'Montant HT (€)';
+                        montantInput.placeholder = 'Ex : 100.00';
+                    } else {
+                        labelMontant.textContent = 'Montant TTC (€)';
+                        montantInput.placeholder = 'Ex : 120.00';
+                    }
+                    // On efface les anciens résultats
+                    resHT.textContent = '–';
+                    resTVA.textContent = '–';
+                    resTTC.textContent = '–';
+                    resInfo.textContent = 'Les résultats s’afficheront ici après le calcul.';
+                }
+            });
+        });
+
+        function getTaux() {
+            let taux = 0;
+            if (tauxSelect.value === 'custom') {
+                const val = parseFloat(tauxCustomInput.value.replace(',', '.'));
+                if (isNaN(val) || val < 0) {
+                    alert('Merci de saisir un taux personnalisé valide.');
+                    return null;
+                }
+                taux = val;
+            } else {
+                taux = parseFloat(tauxSelect.value.replace(',', '.'));
+            }
+            return taux;
+        }
+
+        function formatEuro(val) {
+            return val.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+        }
+
+        function calculerTVA() {
+            const brut = parseFloat(montantInput.value.replace(',', '.'));
+            if (isNaN(brut) || brut < 0) {
+                alert('Merci de saisir un montant valide.');
+                return;
+            }
+
+            const taux = getTaux();
+            if (taux === null) return;
+
+            const mode = document.querySelector('input[name="mode"]:checked').value;
+            let ht, tva, ttc;
+
+            if (mode === 'ht-to-ttc') {
+                ht = brut;
+                tva = ht * (taux / 100);
+                ttc = ht + tva;
+                resInfo.textContent = `Calcul à partir du montant HT avec un taux de ${taux.toString().replace('.', ',')} %.`;
+            } else {
+                ttc = brut;
+                ht = ttc / (1 + taux / 100);
+                tva = ttc - ht;
+                resInfo.textContent = `Calcul à partir du montant TTC avec un taux de ${taux.toString().replace('.', ',')} %.`;
+            }
+
+            resHT.textContent = formatEuro(ht);
+            resTVA.textContent = formatEuro(tva);
+            resTTC.textContent = formatEuro(ttc);
+        }
+
+        function reinitialiser() {
+            montantInput.value = '';
+            tauxSelect.value = '20';
+            tauxCustomInput.value = '';
+            tauxCustomWrapper.style.display = 'none';
+            document.querySelector('input[name="mode"][value="ht-to-ttc"]').checked = true;
+            labelMontant.textContent = 'Montant HT (€)';
+            montantInput.placeholder = 'Ex : 100.00';
+
+            resHT.textContent = '–';
+            resTVA.textContent = '–';
+            resTTC.textContent = '–';
+            resInfo.textContent = 'Les résultats s’afficheront ici après le calcul.';
+        }
+    </script>
+</body>
+</html>
