@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Démarrer avec Python - Learn & Tools</title>
+    <meta name="description" content="Apprends à installer Python, exécuter tes premiers scripts et comprendre les bases étape par étape.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --accent: #38bdf8;
+            --accent-soft: #1d4ed8;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --border: #1f2937;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: radial-gradient(circle at top, #1d283a 0, #020617 45%, #020617 100%);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+
+        header {
+            background: rgba(15,23,42,0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.2rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            background: rgba(56,189,248,0.1);
+            color: var(--accent);
+            padding: 0.1rem 0.45rem;
+            font-size: 0.8rem;
+            border-radius: 999px;
+        }
+
+        nav a {
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            color: var(--muted);
+        }
+
+        nav a:hover {
+            background: rgba(15,23,42,0.9);
+            border: 1px solid rgba(148,163,184,0.5);
+            color: var(--text);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1.8rem 0 0.6rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            margin: 1.6rem 0 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .highlight {
+            padding: 0.35rem 0.6rem;
+            background: rgba(56,189,248,0.12);
+            border-left: 3px solid var(--accent);
+            border-radius: 0.25rem;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+
+        pre {
+            background: #020617;
+            padding: 1rem;
+            border: 1px solid rgba(37,99,235,0.7);
+            border-radius: 0.7rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: #93c5fd;
+        }
+
+        .back-links {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .tip {
+            background: rgba(34,197,94,0.1);
+            padding: 0.6rem 0.9rem;
+            border-left: 3px solid #22c55e;
+            border-radius: 0.3rem;
+            color: #86efac;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="logo">
+            <a href="../index.html">Learn &amp; Tools</a>
+            <span>PYTHON</span>
+        </div>
+        <nav>
+            <a href="../index.html">Accueil</a>
+            <a href="../tools/index.html">Outils</a>
+            <a href="index.html">Blog</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <h1>Démarrer avec Python</h1>
+
+    <p>
+        Python est l’un des langages les plus simples à apprendre. Il est utilisé pour automatiser des tâches,
+        développer des applications, créer des jeux, manipuler des données et même faire de l’IA.
+    </p>
+
+    <div class="highlight">
+        Objectif : Installer Python, écrire ton premier script, et comprendre les bases.
+    </div>
+
+    <!-- SECTION 1 -->
+    <h2>1. Installer Python</h2>
+
+    <p>
+        Pour installer Python, rends-toi sur le site officiel :
+        <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a>.
+    </p>
+
+    <p>
+        Après installation, vérifie que Python est bien disponible en ouvrant un terminal :
+    </p>
+
+    <pre><code>python --version</code></pre>
+
+    <p>Tu devrais voir quelque chose comme :</p>
+
+    <pre><code>Python 3.12.0</code></pre>
+
+    <!-- SECTION 2 -->
+    <h2>2. Ton premier programme Python</h2>
+
+    <p>
+        Ouvre un éditeur de texte ou Visual Studio Code, crée un fichier appelé <b>test.py</b> et écris :
+    </p>
+
+    <pre><code>print("Bonjour, Python !")</code></pre>
+
+    <p>Exécute-le :</p>
+
+    <pre><code>python test.py</code></pre>
+
+    <p>
+        Tu devrais voir :
+    </p>
+
+    <pre><code>Bonjour, Python !</code></pre>
+
+    <!-- SECTION 3 -->
+    <h2>3. Variables : comprendre le principe</h2>
+
+    <p>
+        Une variable est simplement une boîte dans laquelle tu stockes une information.
+        Exemple :
+    </p>
+
+    <pre><code>age = 21
+nom = "Alex"
+print("Nom :", nom)
+print("Âge :", age)</code></pre>
+
+    <p>Sortie :</p>
+
+    <pre><code>Nom : Alex
+Âge : 21</code></pre>
+
+    <!-- SECTION 4 -->
+    <h2>4. Entrées clavier : demander quelque chose à l’utilisateur</h2>
+
+    <p>Python peut lire ce que tape l’utilisateur :</p>
+
+    <pre><code>prenom = input("Quel est ton prénom ? ")
+print("Bonjour", prenom)</code></pre>
+
+    <p class="tip">Astuce : <b>input()</b> renvoie toujours du texte (str).</p>
+
+    <!-- SECTION 5 -->
+    <h2>5. Faire un petit programme utile</h2>
+
+    <p>Voici un exemple simple : une addition automatique.</p>
+
+    <pre><code>a = int(input("Nombre 1 : "))
+b = int(input("Nombre 2 : "))
+print("Somme =", a + b)</code></pre>
+
+    <p>
+        Pas mal pour un début, non ?  
+        Tu sais déjà installer Python, exécuter un script, créer des variables et faire tes premiers programmes.
+    </p>
+
+    <h2>Conclusion</h2>
+
+    <p>
+        Ce premier article pose les bases. Dans les suivants, tu apprendras :
+    </p>
+
+    <ul>
+        <li>les conditions (if / else)</li>
+        <li>les boucles</li>
+        <li>les fonctions</li>
+        <li>les listes, dictionnaires…</li>
+        <li>comment créer un vrai petit projet</li>
+    </ul>
+
+    <div class="back-links">
+        <a href="index.html">← Retour au blog</a>
+        <a href="../index.html">Accueil →</a>
+    </div>
+
+</main>
+
+</body>
+</html>
