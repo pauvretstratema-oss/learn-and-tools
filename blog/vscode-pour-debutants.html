@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>VS Code pour débutants - Learn & Tools</title>
+    <meta name="description" content="Découvre comment installer, configurer et utiliser Visual Studio Code pour coder confortablement.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --accent: #38bdf8;
+            --accent-soft: #1d4ed8;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --border: #1f2937;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: radial-gradient(circle at top, #1d283a 0, #020617 45%, #020617 100%);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+
+        header {
+            background: rgba(15,23,42,0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.2rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            background: rgba(56,189,248,0.1);
+            color: var(--accent);
+            padding: 0.1rem 0.45rem;
+            font-size: 0.8rem;
+            border-radius: 999px;
+        }
+
+        nav a {
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            color: var(--muted);
+        }
+
+        nav a:hover {
+            background: rgba(15,23,42,0.9);
+            border: 1px solid rgba(148,163,184,0.5);
+            color: var(--text);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1.8rem 0 0.6rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            margin: 1.6rem 0 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        ul {
+            margin: 0 0 1rem 1.2rem;
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        li { margin-bottom: 0.3rem; }
+
+        .highlight {
+            padding: 0.35rem 0.6rem;
+            background: rgba(56,189,248,0.12);
+            border-left: 3px solid var(--accent);
+            border-radius: 0.25rem;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+
+        pre {
+            background: #020617;
+            padding: 1rem;
+            border: 1px solid rgba(37,99,235,0.7);
+            border-radius: 0.7rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: #93c5fd;
+        }
+
+        .tip {
+            background: rgba(34,197,94,0.1);
+            padding: 0.6rem 0.9rem;
+            border-left: 3px solid #22c55e;
+            border-radius: 0.3rem;
+            color: #86efac;
+            margin-bottom: 1rem;
+        }
+
+        .warn {
+            background: rgba(248,113,113,0.08);
+            padding: 0.6rem 0.9rem;
+            border-left: 3px solid #f97373;
+            border-radius: 0.3rem;
+            color: #fecaca;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-links {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="logo">
+            <a href="../index.html">Learn &amp; Tools</a>
+            <span>VS CODE</span>
+        </div>
+        <nav>
+            <a href="../index.html">Accueil</a>
+            <a href="../tools/index.html">Outils</a>
+            <a href="index.html">Blog</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <h1>Configurer VS Code pour débutants</h1>
+
+    <p>
+        Visual Studio Code (VS Code) est l’un des éditeurs de code les plus utilisés aujourd’hui.
+        Il est léger, gratuit, très puissant, et fonctionne très bien avec Python… mais aussi avec
+        plein d’autres langages.
+    </p>
+
+    <div class="highlight">
+        Objectif : installer VS Code, ajouter les bonnes extensions et le configurer pour coder confortablement.
+    </div>
+
+    <!-- SECTION 1 -->
+    <h2>1. Installer Visual Studio Code</h2>
+
+    <p>
+        Télécharge VS Code depuis le site officiel :
+        <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a>.
+    </p>
+
+    <p>
+        Pendant l’installation, tu peux laisser les options par défaut. Sur Windows, coche l’option
+        qui permet d’ajouter “Code” au menu clic droit, c’est pratique.
+    </p>
+
+    <!-- SECTION 2 -->
+    <h2>2. Installer l’extension Python</h2>
+
+    <p>
+        Pour bien travailler avec Python, installe l’extension officielle :
+    </p>
+
+    <ul>
+        <li>Ouvre VS Code</li>
+        <li>Va dans l’onglet <b>Extensions</b> (icône carrés à gauche)</li>
+        <li>Cherche <b>Python</b> (par Microsoft)</li>
+        <li>Clique sur <b>Install</b></li>
+    </ul>
+
+    <p>
+        Cette extension ajoute :
+    </p>
+
+    <ul>
+        <li>coloration syntaxique améliorée</li>
+        <li>exécution facile des scripts Python</li>
+        <li>débogage (breakpoints, variables, etc.)</li>
+        <li>suggestions intelligentes (IntelliSense)</li>
+    </ul>
+
+    <!-- SECTION 3 -->
+    <h2>3. Ouvrir un dossier de projet</h2>
+
+    <p>
+        L’une des bonnes habitudes avec VS Code, c’est de travailler dans un dossier de projet :
+    </p>
+
+    <ul>
+        <li>Crée un dossier, par exemple <code>projets_python</code></li>
+        <li>Place dedans un fichier comme <code>test.py</code></li>
+        <li>Dans VS Code, va dans <b>File → Open Folder...</b> et choisis ce dossier</li>
+    </ul>
+
+    <p>
+        À partir de là, VS Code reconnaît ton dossier comme un projet : explorateur de fichiers
+        à gauche, scripts listés, terminal intégré, etc.
+    </p>
+
+    <!-- SECTION 4 -->
+    <h2>4. Lancer un script Python depuis VS Code</h2>
+
+    <p>
+        Crée un fichier <code>hello.py</code> avec le contenu suivant :
+    </p>
+
+    <pre><code>print("Hello depuis VS Code !")</code></pre>
+
+    <p>Tu as plusieurs façons de l’exécuter :</p>
+
+    <ul>
+        <li>Clic droit dans l’éditeur → <b>Run Python File in Terminal</b></li>
+        <li>Ou ouvrir un terminal intégré (<b>View → Terminal</b>) puis :</li>
+    </ul>
+
+    <pre><code>python hello.py</code></pre>
+
+    <div class="tip">
+        Le terminal intégré est très pratique : tu peux lancer des commandes sans quitter VS Code.
+    </div>
+
+    <!-- SECTION 5 -->
+    <h2>5. Extensions utiles pour bien débuter</h2>
+
+    <p>Voici quelques extensions simples et utiles :</p>
+
+    <ul>
+        <li><b>Python</b> (Microsoft) – indispensable pour Python</li>
+        <li><b>Pylance</b> – meilleures suggestions et analyse de code</li>
+        <li><b>Code Runner</b> – exécution rapide de petits bouts de code</li>
+        <li><b>Material Icon Theme</b> – icônes de fichiers plus jolies</li>
+        <li><b>GitHub Theme</b> ou autre thème sombre – pour le confort des yeux</li>
+    </ul>
+
+    <!-- SECTION 6 -->
+    <h2>6. Personnaliser le thème et la police</h2>
+
+    <p>
+        Un environnement agréable donne envie de coder plus longtemps. Tu peux changer :
+    </p>
+
+    <ul>
+        <li>le thème : <b>File → Preferences → Color Theme</b></li>
+        <li>la police et la taille : <b>File → Preferences → Settings</b>, cherche “Font”</li>
+    </ul>
+
+    <p>
+        Par exemple, tu peux augmenter la taille de la police à 14 ou 16 si tu trouves le texte trop petit.
+    </p>
+
+    <!-- SECTION 7 -->
+    <h2>7. Raccourcis clavier de base</h2>
+
+    <p>Quelques raccourcis très utiles :</p>
+
+    <ul>
+        <li><b>Ctrl + S</b> : sauvegarder le fichier</li>
+        <li><b>Ctrl + `</b> : ouvrir / fermer le terminal intégré</li>
+        <li><b>Ctrl + B</b> : afficher / cacher l’explorateur de fichiers</li>
+        <li><b>Ctrl + P</b> : ouvrir rapidement un fichier par son nom</li>
+        <li><b>Ctrl + /</b> : commenter / décommenter la ligne</li>
+    </ul>
+
+    <div class="warn">
+        Au début, ne cherche pas à tout retenir. Commence avec 2–3 raccourcis que tu réutilises souvent,
+        et le reste viendra naturellement.
+    </div>
+
+    <!-- SECTION 8 -->
+    <h2>Conclusion</h2>
+
+    <p>
+        Avec VS Code correctement installé et configuré, tu disposes d’un environnement de développement
+        moderne pour Python (et bien d’autres langages).
+    </p>
+
+    <p>
+        Tu as maintenant :
+    </p>
+
+    <ul>
+        <li>un éditeur puissant</li>
+        <li>l’extension Python installée</li>
+        <li>la possibilité d’exécuter tes scripts directement</li>
+        <li>un terminal intégré sous la main</li>
+    </ul>
+
+    <p>
+        Prochaine étape logique : continuer avec les bases de Python (variables, conditions, boucles…),
+        ou configurer un premier petit projet concret (script utilitaire, mini-jeu, etc.).
+    </p>
+
+    <div class="back-links">
+        <a href="index.html">← Retour au blog</a>
+        <a href="../index.html">Accueil →</a>
+    </div>
+</main>
+
+</body>
+</html>
