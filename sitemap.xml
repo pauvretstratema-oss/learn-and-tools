@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Page d'accueil -->
+    <url>
+        <loc>https://pauvretstratema-oss.github.io/learn-and-tools/</loc>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Pages outils -->
+    <url>
+        <loc>https://pauvretstratema-oss.github.io/learn-and-tools/tools/index.html</loc>
+    </url>
+    <url>
+        <loc>https://pauvretstratema-oss.github.io/learn-and-tools/tools/tva-calculator.html</loc>
+    </url>
+    <url>
+        <loc>https://pauvretstratema-oss.github.io/learn-and-tools/tools/password-generator.html</loc>
+    </url>
+    <url>
+        <loc>https://pauvretstratema-oss.github.io/learn-and-tools/tools/timestamp-converter.html</loc>
+    </url>
+
+    <!-- Pages blog -->
+    <url>
+        <loc>https://pauvretstratema-oss.github.io/learn-and-tools/blog/index.html</loc>
+    </url>
+    <url>
+        <loc>https://pauvretstratema-oss.github.io/learn-and-tools/blog/demarrer-avec-python.html</loc>
+    </url>
+    <url>
+        <loc>https://pauvretstratema-oss.github.io/learn-and-tools/blog/vscode-pour-debutants.html</loc>
+    </url>
+    <url>
+        <loc>https://pauvretstratema-oss.github.io/learn-and-tools/blog/comprendre-les-variables.html</loc>
+    </url>
+
+</urlset>
