@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Comprendre les variables en Python - Learn & Tools</title>
+    <meta name="description" content="Découvre ce qu'est une variable en Python, comment la créer, la nommer et l'utiliser avec des exemples simples.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --accent: #38bdf8;
+            --accent-soft: #1d4ed8;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --border: #1f2937;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: radial-gradient(circle at top, #1d283a 0, #020617 45%, #020617 100%);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+
+        header {
+            background: rgba(15,23,42,0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.2rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            background: rgba(56,189,248,0.1);
+            color: var(--accent);
+            padding: 0.1rem 0.45rem;
+            font-size: 0.8rem;
+            border-radius: 999px;
+        }
+
+        nav a {
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            color: var(--muted);
+        }
+
+        nav a:hover {
+            background: rgba(15,23,42,0.9);
+            border: 1px solid rgba(148,163,184,0.5);
+            color: var(--text);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1.8rem 0 0.6rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            margin: 1.6rem 0 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        ul {
+            margin: 0 0 1rem 1.2rem;
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        li { margin-bottom: 0.3rem; }
+
+        .highlight {
+            padding: 0.35rem 0.6rem;
+            background: rgba(56,189,248,0.12);
+            border-left: 3px solid var(--accent);
+            border-radius: 0.25rem;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+
+        pre {
+            background: #020617;
+            padding: 1rem;
+            border: 1px solid rgba(37,99,235,0.7);
+            border-radius: 0.7rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: #93c5fd;
+        }
+
+        .tip {
+            background: rgba(34,197,94,0.1);
+            padding: 0.6rem 0.9rem;
+            border-left: 3px solid #22c55e;
+            border-radius: 0.3rem;
+            color: #86efac;
+            margin-bottom: 1rem;
+        }
+
+        .warn {
+            background: rgba(248,113,113,0.08);
+            padding: 0.6rem 0.9rem;
+            border-left: 3px solid #f97373;
+            border-radius: 0.3rem;
+            color: #fecaca;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-links {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="logo">
+            <a href="../index.html">Learn &amp; Tools</a>
+            <span>VARIABLES</span>
+        </div>
+        <nav>
+            <a href="../index.html">Accueil</a>
+            <a href="../tools/index.html">Outils</a>
+            <a href="index.html">Blog</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <h1>Comprendre les variables en Python</h1>
+
+    <p>
+        Les variables sont l’une des notions les plus importantes en programmation. On les utilise partout :
+        pour stocker un nom, un âge, un résultat de calcul, une configuration… Bref, dès que tu manipules des données.
+    </p>
+
+    <div class="highlight">
+        Objectif : comprendre ce qu’est une variable, comment la créer, la nommer et l’utiliser dans tes programmes Python.
+    </div>
+
+    <!-- SECTION 1 -->
+    <h2>1. C’est quoi une variable ?</h2>
+
+    <p>
+        Une variable, c’est une “boîte” dans laquelle tu ranges une valeur.  
+        Tu lui donnes un nom, et tu peux réutiliser cette valeur plus tard dans ton code.
+    </p>
+
+    <pre><code>age = 25
+nom = "Alex"
+pi = 3.14</code></pre>
+
+    <p>
+        Ici :
+    </p>
+    <ul>
+        <li><code>age</code> contient la valeur <code>25</code></li>
+        <li><code>nom</code> contient le texte <code>"Alex"</code></li>
+        <li><code>pi</code> contient le nombre <code>3.14</code></li>
+    </ul>
+
+    <!-- SECTION 2 -->
+    <h2>2. Comment créer une variable en Python ?</h2>
+
+    <p>
+        En Python, on crée une variable avec la syntaxe :
+    </p>
+
+    <pre><code>nom_de_variable = valeur</code></pre>
+
+    <p>Exemples :</p>
+
+    <pre><code>ville = "Paris"
+temperature = 21.5
+est_connecte = True</code></pre>
+
+    <p>
+        Tu peux ensuite les afficher :
+    </p>
+
+    <pre><code>print(ville)
+print("Température :", temperature)
+print("Connecté ?", est_connecte)</code></pre>
+
+    <!-- SECTION 3 -->
+    <h2>3. Types de valeurs les plus courants</h2>
+
+    <p>En Python, les variables peuvent contenir différents types de données :</p>
+
+    <ul>
+        <li><b>int</b> : nombre entier (<code>3</code>, <code>42</code>, <code>-10</code>)</li>
+        <li><b>float</b> : nombre décimal (<code>3.14</code>, <code>0.5</code>)</li>
+        <li><b>str</b> : chaîne de caractères (<code>"Bonjour"</code>)</li>
+        <li><b>bool</b> : booléen (<code>True</code> ou <code>False</code>)</li>
+    </ul>
+
+    <pre><code>entier = 10          # int
+decimal = 3.14       # float
+texte = "Hello"      # str
+vrai_ou_faux = True  # bool
+
+print(type(entier))
+print(type(decimal))
+print(type(texte))
+print(type(vrai_ou_faux))</code></pre>
+
+    <!-- SECTION 4 -->
+    <h2>4. Renommer et réutiliser une variable</h2>
+
+    <p>
+        Une variable peut changer de valeur pendant l’exécution du programme.
+    </p>
+
+    <pre><code>compteur = 0
+print("Compteur =", compteur)
+
+compteur = compteur + 1
+print("Compteur =", compteur)
+
+compteur = compteur + 10
+print("Compteur =", compteur)</code></pre>
+
+    <p>
+        Ici, on met à jour la variable <code>compteur</code> en fonction de sa valeur précédente.
+    </p>
+
+    <!-- SECTION 5 -->
+    <h2>5. Règles pour nommer une variable</h2>
+
+    <p>Quelques règles importantes :</p>
+
+    <ul>
+        <li>On ne met pas d’espace dans un nom de variable</li>
+        <li>On ne commence pas par un chiffre</li>
+        <li>On utilise souvent <code>_</code> pour séparer les mots : <code>nombre_utilisateurs</code></li>
+        <li>On évite les noms trop courts comme <code>a</code>, <code>b</code> (sauf pour des exemples simples)</li>
+    </ul>
+
+    <div class="tip">
+        Bon exemple : <code>age_utilisateur</code>, <code>prix_total</code>, <code>nom_client</code><br>
+        Mauvais exemple : <code>x1</code>, <code>t</code>, <code>truc</code>, <code>data2</code>
+    </div>
+
+    <!-- SECTION 6 -->
+    <h2>6. Exemple complet : calcul simple avec variables</h2>
+
+    <p>Un petit exemple pour tout rassembler :</p>
+
+    <pre><code>prix_unitaire = 19.99
+quantite = 3
+tva = 0.20  # 20 %
+
+prix_ht = prix_unitaire * quantite
+montant_tva = prix_ht * tva
+prix_ttc = prix_ht + montant_tva
+
+print("Prix HT  :", prix_ht)
+print("TVA      :", montant_tva)
+print("Prix TTC :", prix_ttc)</code></pre>
+
+    <p>
+        Ici, chaque partie du calcul est stockée dans une variable : le code est plus clair, plus lisible et plus facile à modifier.
+    </p>
+
+    <!-- SECTION 7 -->
+    <h2>7. Erreurs classiques à éviter</h2>
+
+    <div class="warn">
+        <b>Erreur fréquente :</b> utiliser une variable avant de l’avoir définie.<br><br>
+        Exemple :
+        <pre><code>print(total)
+total = 10</code></pre>
+        Ici, Python va se plaindre car <code>total</code> n’existe pas encore au moment du <code>print</code>.
+    </div>
+
+    <p>
+        Autre erreur fréquente : écraser une variable sans faire exprès :
+    </p>
+
+    <pre><code>nombre = 5
+nombre = "cinq"  # maintenant ce n'est plus un nombre mais du texte</code></pre>
+
+    <p>
+        Python l’accepte, mais pour un débutant ça peut rendre le code difficile à comprendre.
+    </p>
+
+    <!-- SECTION 8 -->
+    <h2>Conclusion</h2>
+
+    <p>
+        Tu sais maintenant :
+    </p>
+
+    <ul>
+        <li>ce qu’est une variable</li>
+        <li>comment la créer et la nommer</li>
+        <li>les principaux types de données</li>
+        <li>comment les utiliser dans des calculs simples</li>
+    </ul>
+
+    <p>
+        C’est une base essentielle pour la suite : conditions, boucles, fonctions, structures de données…
+        Tout repose sur l’utilisation correcte des variables.
+    </p>
+
+    <div class="back-links">
+        <a href="index.html">← Retour au blog</a>
+        <a href="../index.html">Accueil →</a>
+    </div>
+</main>
+
+</body>
+</html>
