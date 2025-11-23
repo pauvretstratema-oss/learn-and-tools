@@ -136,6 +136,7 @@
             justify-content: space-between;
             font-size: 0.78rem;
             color: var(--muted);
+            align-items: center;
         }
 
         .pill {
@@ -176,6 +177,7 @@
         </p>
 
         <section class="cards">
+            <!-- TVA -->
             <a class="card" href="tva-calculator.html">
                 <div class="card-title">Calculatrice de TVA</div>
                 <p class="card-desc">
@@ -183,21 +185,29 @@
                 </p>
                 <div class="card-meta">
                     <span class="pill">Finance</span>
-                    <span>Disponible</span>
+                    <span style="display:flex;align-items:center;gap:6px;color:#4ade80;font-weight:600;">
+                        <span style="width:8px;height:8px;background:#4ade80;border-radius:50%;display:inline-block;"></span>
+                        Disponible
+                    </span>
                 </div>
             </a>
 
-            <div class="card">
+            <!-- Générateur de mots de passe -->
+            <a class="card" href="password-generator.html">
                 <div class="card-title">Générateur de mots de passe</div>
                 <p class="card-desc">
                     Crée des mots de passe sécurisés (longueur, symboles, chiffres, etc.).
                 </p>
                 <div class="card-meta">
                     <span class="pill">Sécurité</span>
-                    <span>Disponible</span>
+                    <span style="display:flex;align-items:center;gap:6px;color:#4ade80;font-weight:600;">
+                        <span style="width:8px;height:8px;background:#4ade80;border-radius:50%;display:inline-block;"></span>
+                        Disponible
+                    </span>
                 </div>
-            </div>
+            </a>
 
+            <!-- Convertisseur de timestamp -->
             <div class="card">
                 <div class="card-title">Convertisseur de timestamp</div>
                 <p class="card-desc">
