@@ -6,11 +6,10 @@
     <meta name="description" content="Learn & Tools : des outils gratuits en ligne et des tutoriels pour apprendre l'informatique et la programmation.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Plus tard : Script AdSense à coller ici -->
-    <!--
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=TON_CLIENT_ID"
+    <!-- Script global AdSense (à compléter quand tu auras ton compte) -->
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=TON_CLIENT_ID"
         crossorigin="anonymous"></script>
-    -->
 
     <style>
         :root {
@@ -581,7 +580,6 @@ afficher(prixTTC)</code></pre>
                             Disponible
                         </span>
                     </div>
-                    </div>
                 </a>
             </div>
         </section>
@@ -647,17 +645,29 @@ afficher(prixTTC)</code></pre>
                         </div>
                     </div>
 
-                    <div class="card" style="height: 100%; justify-content: space-between;">
+                    <div class="card" style="height: 100%; display:flex; flex-direction:column; justify-content:space-between;">
                         <div>
-                            <div class="card-title">Espace “AdSense” & logiciels</div>
+                            <div class="card-title">Publicité</div>
                             <p class="card-desc">
-                                Cet encart pourra afficher une publicité contextuelle (AdSense) ou mettre en avant
-                                un logiciel que tu auras développé : outil PC, service en ligne, module payant, etc.
+                                Cet espace affiche une publicité Google AdSense pour soutenir le site.
                             </p>
                         </div>
+
+                        <!-- Bloc pub AdSense (remplace TON_CLIENT_ID et TON_AD_SLOT quand tu auras ton code) -->
+                        <ins class="adsbygoogle"
+                             style="display:block; margin-top:0.8rem;"
+                             data-ad-client="TON_CLIENT_ID"
+                             data-ad-slot="TON_AD_SLOT"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+
                         <div class="card-meta">
                             <span class="pill">Monétisation</span>
-                            <span>À activer plus tard</span>
+                            <span>Actif</span>
                         </div>
                     </div>
                 </aside>
