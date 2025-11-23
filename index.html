@@ -362,6 +362,21 @@
             flex-wrap: wrap;
         }
 
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-nav a {
+            color: var(--muted);
+        }
+
+        .footer-nav a:hover {
+            color: var(--accent);
+        }
+
          .contact-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -726,15 +741,20 @@ afficher(prixTTC)</code></pre>
     </main>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="container footer-meta">
-            <span>&copy; <span id="year"></span> Learn &amp; Tools. Tous droits réservés.</span>
-            <span>Projet personnel – outils, tutos & expérimentation business en ligne.</span>
+<footer>
+    <div class="container footer-meta">
+        <span>&copy; <span id="year"></span> Learn &amp; Tools. Tous droits réservés.</span>
+        <div class="footer-nav">
+            <a href="index.html">Accueil</a>
+            <a href="tools/index.html">Outils</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="#contact">Contact</a>
         </div>
-        <script>
-            // Affiche l'année courante automatiquement
-            document.getElementById('year').textContent = new Date().getFullYear();
-        </script>
-    </footer>
+    </div>
+    <script>
+        // Affiche l'année courante automatiquement
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</footer>
 </body>
 </html>
