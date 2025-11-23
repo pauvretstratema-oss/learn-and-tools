@@ -152,6 +152,37 @@
             justify-content: space-between;
             font-size: 0.9rem;
         }
+
+        footer {
+            margin-top: 2.5rem;
+            padding: 1.5rem 0 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .footer-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-nav a {
+            color: var(--muted);
+        }
+
+        .footer-nav a:hover {
+            color: var(--accent);
+        }
+        
     </style>
 </head>
 
@@ -353,6 +384,22 @@ nombre = "cinq"  # maintenant ce n'est plus un nombre mais du texte</code></pre>
         <a href="../index.html">Accueil →</a>
     </div>
 </main>
-
+<footer>
+    <div class="container footer-meta">
+        <span>&copy; <span class="year-article"></span> Learn &amp; Tools. Tous droits réservés.</span>
+        <div class="footer-nav">
+            <a href="../index.html">Accueil</a>
+            <a href="../tools/index.html">Outils</a>
+            <a href="index.html">Blog</a>
+            <a href="../index.html#contact">Contact</a>
+        </div>
+    </div>
+    <script>
+        // met l'année automatiquement sur tous les éléments .year-article
+        document.querySelectorAll('.year-article').forEach(el => {
+            el.textContent = new Date().getFullYear();
+        });
+    </script>
+</footer>
 </body>
 </html>
