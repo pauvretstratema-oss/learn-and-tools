@@ -362,6 +362,57 @@
             flex-wrap: wrap;
         }
 
+         .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .contact-input,
+        .contact-textarea {
+            padding: 0.45rem 0.6rem;
+            border-radius: 0.6rem;
+            border: 1px solid rgba(55,65,81,0.9);
+            background: rgba(15,23,42,0.9);
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .contact-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-input:focus,
+        .contact-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .contact-note {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.4rem;
+        }
+
+        @media (max-width: 640px) {
+            .contact-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
         @media (max-width: 900px) {
             .hero-grid,
             .layout-two {
@@ -396,7 +447,7 @@
                 <nav>
                     <ul>
                         <li><a href="tools/index.html">Outils</a></li>
-                        <li><a href="#blog">Blog Python</a></li>
+                        <li><a href="blog/index.html">Blog Python</a></li>
                         <li><a href="#apropos">À propos</a></li>
                         <li><a href="#contact" class="cta-nav">Contact</a></li>
                     </ul>
@@ -618,23 +669,47 @@ afficher(prixTTC)</code></pre>
         </section>
 
         <!-- SECTION CONTACT -->
-        <section class="section" id="contact">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">Contact</h2>
-                    <p class="section-subtitle">
-                        Une question, une idée d’outil ou de tutoriel ? Tu peux me contacter directement.
-                    </p>
-                </div>
-            </div>
+<section class="section" id="contact">
+    <div class="section-header">
+        <div>
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">
+                Une question, une idée d’outil, une suggestion d’article ? Tu peux me contacter facilement.
+            </p>
+        </div>
+    </div>
 
-            <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 0.3rem;">
-                📧 Email : <a href="mailto:tonmail@example.com">tonmail@example.com</a>
-            </p>
-            <p style="font-size: 0.85rem; color: var(--muted);">
-                (Tu pourras aussi ajouter plus tard un formulaire de contact ou des liens vers tes réseaux.)
-            </p>
-        </section>
+    <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 0.6rem;">
+        📧 Email direct : <a href="mailto:p.auvret.stratema@gmail.com">p.auvret.stratema@gmail.com</a>
+    </p>
+
+    <form action="mailto:p.auvret.stratema@gmail.com" method="post" enctype="text/plain">
+        <div class="contact-grid">
+            <div class="contact-field">
+                <label class="contact-label" for="nom">Nom / Pseudo</label>
+                <input class="contact-input" type="text" id="nom" name="Nom" placeholder="Ex : Alex">
+            </div>
+            <div class="contact-field">
+                <label class="contact-label" for="email">Email</label>
+                <input class="contact-input" type="email" id="email" name="Email" placeholder="exemple@domaine.com">
+            </div>
+        </div>
+
+        <div class="contact-field">
+            <label class="contact-label" for="message">Message</label>
+            <textarea class="contact-textarea" id="message" name="Message" placeholder="Explique ton idée, ta question, ou ton besoin..."></textarea>
+        </div>
+
+        <div style="margin-top: 0.7rem;">
+            <button type="submit" class="btn btn-primary">Envoyer par email</button>
+        </div>
+
+        <p class="contact-note">
+            Le bouton ouvrira ton logiciel de messagerie avec les informations pré-remplies.
+            Tu pourras l’ajuster avant d’envoyer.
+        </p>
+    </form>
+</section>
     </main>
 
     <!-- FOOTER -->
