@@ -206,162 +206,198 @@
     <h1>Configurer VS Code pour débutants</h1>
 
     <p>
-        Visual Studio Code (VS Code) est l’un des éditeurs de code les plus utilisés aujourd’hui.
-        Il est léger, gratuit, très puissant, et fonctionne très bien avec Python… mais aussi avec
-        plein d’autres langages.
+        Visual Studio Code (VS Code) est l’un des éditeurs de code les plus utilisés au monde :
+        léger, moderne, gratuit, puissant, et disponible sur Windows, macOS et Linux.  
+        Ce guide t’accompagne pas à pas pour l’installer, l’améliorer et commencer à coder dans les meilleures conditions.
     </p>
 
     <div class="highlight">
-        Objectif : installer VS Code, ajouter les bonnes extensions et le configurer pour coder confortablement.
+        🎯 Objectif : installer VS Code, ajouter les extensions indispensables, comprendre les bases, et écrire ton premier programme.
     </div>
 
     <!-- SECTION 1 -->
     <h2>1. Installer Visual Studio Code</h2>
 
     <p>
-        Télécharge VS Code depuis le site officiel :
+        Commence par télécharger VS Code depuis le site officiel :
         <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a>.
     </p>
 
-    <p>
-        Pendant l’installation, tu peux laisser les options par défaut. Sur Windows, coche l’option
-        qui permet d’ajouter “Code” au menu clic droit, c’est pratique.
-    </p>
+    <p><b>Conseils selon ton système :</b></p>
+
+    <ul>
+        <li><b>Windows :</b> coche « Ajouter VS Code au menu clic droit ». Très utile pour ouvrir un dossier rapidement.</li>
+        <li><b>Mac :</b> déplace simplement l’application dans « Applications ».</li>
+        <li><b>Linux :</b> utilise le package .deb ou .rpm selon ta distribution.</li>
+    </ul>
+
+    <div class="tip">
+        VS Code est mis à jour automatiquement. Tu n’as rien à faire !
+    </div>
 
     <!-- SECTION 2 -->
-    <h2>2. Installer l’extension Python</h2>
+    <h2>2. Installer l’extension Python (obligatoire pour coder en Python)</h2>
 
     <p>
-        Pour bien travailler avec Python, installe l’extension officielle :
+        L’extension officielle Python apporte tout ce qu’il faut pour bien travailler :
     </p>
+
+    <ul>
+        <li>coloration du code</li>
+        <li>exécution rapide des scripts</li>
+        <li>débogage (breakpoints, variables, step-by-step)</li>
+        <li>autocomplétion intelligente (IntelliSense)</li>
+    </ul>
+
+    <p><b>Pour l’installer :</b></p>
 
     <ul>
         <li>Ouvre VS Code</li>
-        <li>Va dans l’onglet <b>Extensions</b> (icône carrés à gauche)</li>
-        <li>Cherche <b>Python</b> (par Microsoft)</li>
+        <li>Clique sur l’icône Extensions (les 4 carrés à gauche)</li>
+        <li>Recherche <b>Python</b> (Microsoft)</li>
         <li>Clique sur <b>Install</b></li>
     </ul>
 
-    <p>
-        Cette extension ajoute :
-    </p>
-
-    <ul>
-        <li>coloration syntaxique améliorée</li>
-        <li>exécution facile des scripts Python</li>
-        <li>débogage (breakpoints, variables, etc.)</li>
-        <li>suggestions intelligentes (IntelliSense)</li>
-    </ul>
+    <pre><code>Microsoft Python Extension Pack
+⇢ Python (obligatoire)
+⇢ Pylance (analyse et autocomplétion)
+⇢ Jupyter (si tu fais du notebook)
+</code></pre>
 
     <!-- SECTION 3 -->
-    <h2>3. Ouvrir un dossier de projet</h2>
+    <h2>3. Créer un dossier de projet (bonne pratique)</h2>
 
     <p>
-        L’une des bonnes habitudes avec VS Code, c’est de travailler dans un dossier de projet :
+        Une erreur fréquente des débutants : coder sur le bureau.  
+        La bonne pratique est de créer ton propre dossier projet :
     </p>
 
+    <pre><code>Documents/
+    projets_python/
+        mon_script.py
+</code></pre>
+
+    <p><b>Ensuite, dans VS Code :</b></p>
     <ul>
-        <li>Crée un dossier, par exemple <code>projets_python</code></li>
-        <li>Place dedans un fichier comme <code>test.py</code></li>
-        <li>Dans VS Code, va dans <b>File → Open Folder...</b> et choisis ce dossier</li>
+        <li>Menu <b>File → Open Folder…</b></li>
+        <li>Sélectionne ton dossier <code>projets_python</code></li>
     </ul>
 
-    <p>
-        À partir de là, VS Code reconnaît ton dossier comme un projet : explorateur de fichiers
-        à gauche, scripts listés, terminal intégré, etc.
-    </p>
+    <div class="tip">
+        Travailler « par dossier » permet à VS Code d’activer les extensions, garder l’historique, gérer un terminal local, etc.
+    </div>
 
     <!-- SECTION 4 -->
-    <h2>4. Lancer un script Python depuis VS Code</h2>
+    <h2>4. Lancer ton premier programme Python</h2>
 
-    <p>
-        Crée un fichier <code>hello.py</code> avec le contenu suivant :
-    </p>
+    <p>Crée un fichier <code>hello.py</code> avec :</p>
 
-    <pre><code>print("Hello depuis VS Code !")</code></pre>
+    <pre><code>print("Bienvenue dans VS Code !")</code></pre>
 
-    <p>Tu as plusieurs façons de l’exécuter :</p>
-
+    <p>Pour exécuter :</p>
     <ul>
-        <li>Clic droit dans l’éditeur → <b>Run Python File in Terminal</b></li>
-        <li>Ou ouvrir un terminal intégré (<b>View → Terminal</b>) puis :</li>
+        <li>Clic droit → <b>Run Python File in Terminal</b></li>
+        <li>OU terminal intégré → tape :</li>
     </ul>
 
     <pre><code>python hello.py</code></pre>
 
     <div class="tip">
-        Le terminal intégré est très pratique : tu peux lancer des commandes sans quitter VS Code.
+        Le terminal intégré (Ctrl + `) est ton meilleur ami pour lancer, installer, tester du code.
     </div>
 
     <!-- SECTION 5 -->
-    <h2>5. Extensions utiles pour bien débuter</h2>
+    <h2>5. Extensions indispensables (débutant → confirmé)</h2>
 
-    <p>Voici quelques extensions simples et utiles :</p>
+    <p>Je te recommande ces extensions :</p>
 
     <ul>
-        <li><b>Python</b> (Microsoft) – indispensable pour Python</li>
-        <li><b>Pylance</b> – meilleures suggestions et analyse de code</li>
-        <li><b>Code Runner</b> – exécution rapide de petits bouts de code</li>
-        <li><b>Material Icon Theme</b> – icônes de fichiers plus jolies</li>
-        <li><b>GitHub Theme</b> ou autre thème sombre – pour le confort des yeux</li>
+        <li><b>Python</b> – (Microsoft) indispensable</li>
+        <li><b>Pylance</b> – meilleure analyse de code</li>
+        <li><b>Code Runner</b> – exécuter du code très vite</li>
+        <li><b>Material Icon Theme</b> – icônes jolies et claires</li>
+        <li><b>GitHub Theme</b> – un thème moderne</li>
+        <li><b>Prettier</b> – formatage propre (JS/HTML/CSS)</li>
     </ul>
+
+    <div class="highlight">
+        Rappel : ne surcharge pas VS Code.  
+        5–8 extensions suffisent largement au début.
+    </div>
 
     <!-- SECTION 6 -->
     <h2>6. Personnaliser le thème et la police</h2>
 
     <p>
-        Un environnement agréable donne envie de coder plus longtemps. Tu peux changer :
+        Un environnement agréable donne envie de coder plus longtemps.  
+        Tu peux personnaliser VS Code très facilement :
     </p>
 
     <ul>
-        <li>le thème : <b>File → Preferences → Color Theme</b></li>
-        <li>la police et la taille : <b>File → Preferences → Settings</b>, cherche “Font”</li>
+        <li><b>Thèmes :</b> File → Preferences → Color Theme</li>
+        <li><b>Police :</b> File → Preferences → Settings → "Font"</li>
+        <li>Recommandation : taille de police entre 14 et 16</li>
     </ul>
 
-    <p>
-        Par exemple, tu peux augmenter la taille de la police à 14 ou 16 si tu trouves le texte trop petit.
-    </p>
+    <pre><code>// Exemple de réglage
+"editor.fontSize": 16,
+"editor.lineHeight": 24,
+"editor.fontFamily": "Consolas, monospace"
+</code></pre>
 
     <!-- SECTION 7 -->
-    <h2>7. Raccourcis clavier de base</h2>
-
-    <p>Quelques raccourcis très utiles :</p>
+    <h2>7. Raccourcis clavier utiles</h2>
 
     <ul>
-        <li><b>Ctrl + S</b> : sauvegarder le fichier</li>
-        <li><b>Ctrl + `</b> : ouvrir / fermer le terminal intégré</li>
-        <li><b>Ctrl + B</b> : afficher / cacher l’explorateur de fichiers</li>
-        <li><b>Ctrl + P</b> : ouvrir rapidement un fichier par son nom</li>
-        <li><b>Ctrl + /</b> : commenter / décommenter la ligne</li>
+        <li><b>Ctrl + S</b> → Sauvegarder</li>
+        <li><b>Ctrl + `</b> → Ouvrir/Fermer le terminal intégré</li>
+        <li><b>Ctrl + B</b> → Ouvrir/Cacher l’explorateur</li>
+        <li><b>Ctrl + P</b> → Ouvrir un fichier rapidement</li>
+        <li><b>Ctrl + /</b> → Commenter une ligne</li>
+        <li><b>Shift + Alt + ↓</b> → Dupliquer une ligne</li>
+        <li><b>Ctrl + Shift + L</b> → Sélection multiple</li>
     </ul>
 
     <div class="warn">
-        Au début, ne cherche pas à tout retenir. Commence avec 2–3 raccourcis que tu réutilises souvent,
-        et le reste viendra naturellement.
+        Ne cherche pas à tout retenir d’un coup : 2 ou 3 raccourcis utilisés régulièrement suffisent pour commencer.
     </div>
 
     <!-- SECTION 8 -->
+    <h2>8. Fonctionnalités bonus à connaître</h2>
+
+    <p>Quand tu seras plus à l’aise :</p>
+
+    <ul>
+        <li><b>Débogueur</b> (breakpoints, step-by-step)</li>
+        <li><b>Extensions Git intégrées</b> pour versionner ton code</li>
+        <li><b>Split view</b> pour coder sur 2 fichiers à la fois</li>
+        <li><b>Snippets</b> pour créer des modèles de code automatiques</li>
+    </ul>
+
+    <p>VS Code peut devenir un IDE complet si tu as besoin.</p>
+
+    <!-- CONCLUSION -->
     <h2>Conclusion</h2>
 
     <p>
-        Avec VS Code correctement installé et configuré, tu disposes d’un environnement de développement
-        moderne pour Python (et bien d’autres langages).
+        VS Code est un outil puissant, mais simple à prendre en main.  
+        Avec cette configuration, tu disposes d’un environnement stable et moderne pour développer en Python.
     </p>
 
-    <p>
-        Tu as maintenant :
-    </p>
+    <p>Tu sais maintenant :</p>
 
     <ul>
-        <li>un éditeur puissant</li>
-        <li>l’extension Python installée</li>
-        <li>la possibilité d’exécuter tes scripts directement</li>
-        <li>un terminal intégré sous la main</li>
+        <li>installer VS Code</li>
+        <li>installer l’extension Python</li>
+        <li>organiser un dossier de projet</li>
+        <li>exécuter ton premier script</li>
+        <li>personnaliser l’interface</li>
+        <li>utiliser les raccourcis essentiels</li>
     </ul>
 
     <p>
-        Prochaine étape logique : continuer avec les bases de Python (variables, conditions, boucles…),
-        ou configurer un premier petit projet concret (script utilitaire, mini-jeu, etc.).
+        Pour la suite, tu peux enchaîner sur :
+        <a href="comprendre-les-variables.html">Comprendre les variables</a>.
     </p>
 
     <div class="back-links">
