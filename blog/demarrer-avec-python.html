@@ -185,115 +185,242 @@
 </header>
 
 <main class="container">
-    <h1>Démarrer avec Python</h1>
+    <h1>Démarrer avec Python (pas à pas)</h1>
 
     <p>
-        Python est l’un des langages les plus simples à apprendre. Il est utilisé pour automatiser des tâches,
-        développer des applications, créer des jeux, manipuler des données et même faire de l’IA.
+        Tu veux apprendre à programmer, mais tu ne sais pas par où commencer ?  
+        Python est un excellent choix : simple à lire, utilisé partout (scripts, web, automatisation, data, IA…) 
+        et parfait pour les débutants.
     </p>
 
     <div class="highlight">
-        Objectif : Installer Python, écrire ton premier script, et comprendre les bases.
+        🎯 Objectif : installer Python, vérifier qu’il fonctionne, créer ton dossier de projets et exécuter ton premier script sans te perdre.
     </div>
 
     <!-- SECTION 1 -->
-    <h2>1. Installer Python</h2>
+    <h2>1. Installer Python sur ton ordinateur</h2>
 
     <p>
-        Pour installer Python, rends-toi sur le site officiel :
-        <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a>.
+        Python est un langage interprété : tu as besoin d’un programme (l’interpréteur) pour lancer ton code.
+        On va installer la version Python&nbsp;3, qui est la version actuelle.
     </p>
 
-    <p>
-        Après installation, vérifie que Python est bien disponible en ouvrant un terminal :
-    </p>
-
-    <pre><code>python --version</code></pre>
-
-    <p>Tu devrais voir quelque chose comme :</p>
-
-    <pre><code>Python 3.12.0</code></pre>
-
-    <!-- SECTION 2 -->
-    <h2>2. Ton premier programme Python</h2>
+    <h3>1.1. Télécharger Python</h3>
 
     <p>
-        Ouvre un éditeur de texte ou Visual Studio Code, crée un fichier appelé <b>test.py</b> et écris :
-    </p>
-
-    <pre><code>print("Bonjour, Python !")</code></pre>
-
-    <p>Exécute-le :</p>
-
-    <pre><code>python test.py</code></pre>
-
-    <p>
-        Tu devrais voir :
-    </p>
-
-    <pre><code>Bonjour, Python !</code></pre>
-
-    <!-- SECTION 3 -->
-    <h2>3. Variables : comprendre le principe</h2>
-
-    <p>
-        Une variable est simplement une boîte dans laquelle tu stockes une information.
-        Exemple :
-    </p>
-
-    <pre><code>age = 21
-nom = "Alex"
-print("Nom :", nom)
-print("Âge :", age)</code></pre>
-
-    <p>Sortie :</p>
-
-    <pre><code>Nom : Alex
-Âge : 21</code></pre>
-
-    <!-- SECTION 4 -->
-    <h2>4. Entrées clavier : demander quelque chose à l’utilisateur</h2>
-
-    <p>Python peut lire ce que tape l’utilisateur :</p>
-
-    <pre><code>prenom = input("Quel est ton prénom ? ")
-print("Bonjour", prenom)</code></pre>
-
-    <p class="tip">Astuce : <b>input()</b> renvoie toujours du texte (str).</p>
-
-    <!-- SECTION 5 -->
-    <h2>5. Faire un petit programme utile</h2>
-
-    <p>Voici un exemple simple : une addition automatique.</p>
-
-    <pre><code>a = int(input("Nombre 1 : "))
-b = int(input("Nombre 2 : "))
-print("Somme =", a + b)</code></pre>
-
-    <p>
-        Pas mal pour un début, non ?  
-        Tu sais déjà installer Python, exécuter un script, créer des variables et faire tes premiers programmes.
-    </p>
-
-    <h2>Conclusion</h2>
-
-    <p>
-        Ce premier article pose les bases. Dans les suivants, tu apprendras :
+        Rendez-vous sur le site officiel : <b>python.org</b>, rubrique <b>Downloads</b>.  
+        Choisis la version adaptée à ton système :
     </p>
 
     <ul>
-        <li>les conditions (if / else)</li>
-        <li>les boucles</li>
-        <li>les fonctions</li>
-        <li>les listes, dictionnaires…</li>
-        <li>comment créer un vrai petit projet</li>
+        <li><b>Windows :</b> bouton “Download Python 3.x”</li>
+        <li><b>macOS :</b> section macOS, télécharge l’installateur .pkg</li>
+        <li><b>Linux :</b> souvent déjà installé, sinon via le gestionnaire de paquets (apt, dnf, etc.)</li>
     </ul>
+
+    <h3>1.2. Installation sous Windows (point important)</h3>
+
+    <p>Quand tu lances l’installateur :</p>
+
+    <ul>
+        <li>✔ Coche <b>“Add Python to PATH”</b> en bas de la fenêtre</li>
+        <li>✔ Puis clique sur <b>“Install Now”</b></li>
+    </ul>
+
+    <p>
+        Cette option permet de lancer Python facilement depuis le terminal.  
+        Si tu l’oublies, ce n’est pas grave, mais ce sera un peu plus compliqué pour la suite.
+    </p>
+
+    <div class="tip">
+        Une fois l’installation terminée, tu peux déjà passer à la vérification dans un terminal.
+    </div>
+
+    <!-- SECTION 2 -->
+    <h2>2. Vérifier que Python est bien installé</h2>
+
+    <p>
+        Ouvre un terminal :
+    </p>
+    <ul>
+        <li>Windows : <b>Invite de commandes</b> ou <b>PowerShell</b></li>
+        <li>macOS : application <b>Terminal</b></li>
+        <li>Linux : ton terminal habituel</li>
+    </ul>
+
+    <p>Puis tape l’une des commandes suivantes :</p>
+
+    <pre><code>python --version</code></pre>
+    <p>ou</p>
+    <pre><code>python3 --version</code></pre>
+
+    <p>
+        Si tout va bien, tu dois voir apparaître quelque chose comme :
+    </p>
+
+    <pre><code>Python 3.12.0</code></pre>
+
+    <div class="warn">
+        Si tu as un message du type <code>commande introuvable</code> ou <code>python n'est pas reconnu</code> :
+        <ul>
+            <li>Essaie avec <code>python3 --version</code></li>
+            <li>Vérifie que tu as bien coché “Add Python to PATH” sous Windows</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3 -->
+    <h2>3. Créer ton premier dossier de projets</h2>
+
+    <p>
+        Pour travailler proprement, on va créer un dossier dédié à tes projets Python,
+        plutôt que de mettre des fichiers partout sur le bureau.
+    </p>
+
+    <p>Par exemple :</p>
+
+    <ul>
+        <li><b>Windows :</b> <code>C:\Users\TonNom\Documents\python-projets\</code></li>
+        <li><b>macOS / Linux :</b> <code>/home/tonnom/python-projets/</code> ou dans Documents</li>
+    </ul>
+
+    <p>Dans ce dossier, crée un fichier nommé :</p>
+
+    <pre><code>hello.py</code></pre>
+
+    <p>
+        Tu peux le créer avec un éditeur simple (VS Code, Notepad++, etc.).  
+        Si tu as suivi l’article sur VS Code, c’est le bon moment pour l’utiliser 😉
+    </p>
+
+    <!-- SECTION 4 -->
+    <h2>4. Écrire ton premier script Python</h2>
+
+    <p>Ouvre le fichier <code>hello.py</code> et ajoute :</p>
+
+    <pre><code>print("Bonjour, Python !")</code></pre>
+
+    <p>
+        Cette ligne dit simplement à Python d’afficher le texte <code>Bonjour, Python !</code>.  
+        Enregistre le fichier avant de continuer.
+    </p>
+
+    <!-- SECTION 5 -->
+    <h2>5. Exécuter ton script</h2>
+
+    <h3>5.1. Avec le terminal</h3>
+
+    <p>
+        Dans ton terminal, déplace-toi dans ton dossier de projets avec la commande <code>cd</code>.
+    </p>
+
+    <p>Exemple sous Windows :</p>
+    <pre><code>cd C:\Users\TonNom\Documents\python-projets
+python hello.py</code></pre>
+
+    <p>Exemple sous macOS / Linux :</p>
+    <pre><code>cd /home/tonnom/python-projets
+python3 hello.py</code></pre>
+
+    <p>Tu devrais voir :</p>
+    <pre><code>Bonjour, Python !</code></pre>
+
+    <div class="tip">
+        Si tu vois ce message, félicitations 🎉 : tu as installé Python, créé un fichier et exécuté ton premier programme.
+    </div>
+
+    <h3>5.2. Avec VS Code (option plus confortable)</h3>
+
+    <p>
+        Si tu utilises VS Code :
+    </p>
+
+    <ul>
+        <li>Ouvre le dossier <code>python-projets</code> dans VS Code</li>
+        <li>Ouvre <code>hello.py</code></li>
+        <li>Clic droit → <b>Run Python File in Terminal</b></li>
+    </ul>
+
+    <p>
+        Le résultat apparaîtra dans le terminal intégré en bas de VS Code.
+    </p>
+
+    <!-- SECTION 6 -->
+    <h2>6. Rendre le programme interactif</h2>
+
+    <p>
+        On va maintenant rendre le script un peu plus intéressant en demandant une information à l’utilisateur.
+    </p>
+
+    <pre><code>nom = input("Comment tu t'appelles ? ")
+print("Enchanté,", nom, "!")</code></pre>
+
+    <p>
+        En relançant le script, Python va :
+    </p>
+    <ul>
+        <li>t’afficher la question <code>Comment tu t'appelles ?</code></li>
+        <li>attendre que tu tapes quelque chose et appuies sur Entrée</li>
+        <li>afficher un message personnalisé</li>
+    </ul>
+
+    <!-- SECTION 7 -->
+    <h2>7. Petites erreurs fréquentes (et comment les corriger)</h2>
+
+    <div class="warn">
+        <b>1. Python introuvable dans le terminal</b><br>
+        Essaie <code>python3</code> au lieu de <code>python</code>, ou vérifie ton installation.
+    </div>
+
+    <div class="warn">
+        <b>2. Mauvais dossier</b><br>
+        Si tu as un message “No such file or directory”, vérifie :
+        <ul>
+            <li>que tu es bien dans le dossier <code>python-projets</code></li>
+            <li>que le fichier s’appelle bien <code>hello.py</code></li>
+        </ul>
+    </div>
+
+    <div class="warn">
+        <b>3. Fautes de frappe</b><br>
+        Python ne pardonne pas les petites erreurs :
+        <ul>
+            <li><code>pritn("Hello")</code> ne fonctionne pas</li>
+            <li>les guillemets doivent être fermés</li>
+            <li>la casse compte : <code>Print</code> ≠ <code>print</code></li>
+        </ul>
+    </div>
+
+    <!-- SECTION 8 -->
+    <h2>8. Et après, on fait quoi ?</h2>
+
+    <p>
+        Maintenant que tu as :
+    </p>
+
+    <ul>
+        <li>installé Python,</li>
+        <li>créé un premier script,</li>
+        <li>vu comment exécuter ton programme,</li>
+        <li>et testé une petite interaction,</li>
+    </ul>
+
+    <p>
+        Tu peux passer aux prochaines bases importantes :
+    </p>
+
+    <ul>
+        <li><a href="comprendre-les-variables.html">Comprendre les variables</a></li>
+        <li><a href="vscode-pour-debutants.html">Configurer VS Code pour débutants</a></li>
+    </ul>
+
+    <p>
+        L’idée est de progresser petit à petit, en testant chaque nouvelle notion avec un exemple concret.
+    </p>
 
     <div class="back-links">
         <a href="index.html">← Retour au blog</a>
         <a href="../index.html">Accueil →</a>
     </div>
-
 </main>
 <footer>
     <div class="container footer-meta">
